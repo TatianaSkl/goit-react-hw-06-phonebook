@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { addContact } from 'redux/contactsSlice';
+import { contactsSelector } from 'redux/selectors';
 import { Form, LabelForm, InputForm, ButtonForm } from './ContactForm.styled';
 
 export const ContactForm = () => {
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(contactsSelector);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {

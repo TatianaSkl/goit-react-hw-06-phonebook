@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { deleteContact } from 'redux/contactsSlice';
+import { contactsSelector, filterSelector } from 'redux/selectors';
 import { List, Item, Button } from './ContactList.styled';
 
 export const ContactList = () => {
-  const contacts = useSelector(state => state.contacts);
-  const filterValue = useSelector(state => state.filter.filter.toLowerCase().trim());
+  const contacts = useSelector(contactsSelector);
+  const filterValue = useSelector(state => filterSelector(state).toLowerCase().trim());
   const dispatch = useDispatch();
 
   const handleDeleteContact = e => {
